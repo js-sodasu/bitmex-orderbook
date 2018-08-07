@@ -232,7 +232,9 @@
 	  	display:flex;
 	  	flex-direction: column;
 	  }
-
+	  .orderbook-sell li span{
+	  	border:0px solid #d2d2d2;
+	  }
 	  .orderbook-buy-container{
 	  	display:flex;
 	  	flex-direction: row-reverse;
@@ -249,14 +251,18 @@
 	  .orderbook-size{
 	  	width:120px;
 	  }
-	  .orderbook > li > span{
-	  	text-align: center;
+	  .orderbook-label-container{
+	  	display:flex;
+	  	flex-direction: row;
+	  	justify-content: center;
 	  }
-	  .orderbook > li > span:first-child{
-	  	width:100px;
+	  
+
+	  .orderbook-label-container .orderbook-label:first-child{
+	  	width:100px !important;
 	  }
-	  .orderbook > li > span:nth-child(2){
-	  	width:120px;
+	  .orderbook-label-container .orderbook-label:nth-child(2){
+	  	width:120px !important;
 	  }
 
 	}
@@ -300,14 +306,14 @@
 					</div>
 				</div>
 				<ol class='orderbook orderbook-buy'>
-					<li>
-						<span class='orderbook-label right'>
+					<li >
+						<span class='orderbook-label total right'>
 							Total
 						</span>
-						<span class='orderbook-label right'>
+						<span class='orderbook-label size right'>
 							Size
 						</span>
-						<span class='orderbook-label right'>
+						<span class='orderbook-label price right'>
 							Price
 						</span>
 					</li>
@@ -328,15 +334,17 @@
 
 				<ol class='orderbook orderbook-sell'>
 					<li>
-						<span class='orderbook-label left'>
-							Price
-						</span>
-						<span class='orderbook-label left'>
-							Size
-						</span>
-						<span class='orderbook-label left'>
-							Total
-						</span>
+						<div class="orderbook-label-container">
+							<span class='orderbook-label left'>
+								Price
+							</span>
+							<span class='orderbook-label left'>
+								Size
+							</span>
+							<span class='orderbook-label left'>
+								Total
+							</span>
+						</div>
 					</li>
 					<li v-for='order in orderSell' :key='order' :class='"sell "+order.scale'>
 						<div class="orderbook-sell-container">
